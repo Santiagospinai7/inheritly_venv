@@ -1,0 +1,526 @@
+<!doctype html>
+<html lang=en>
+  <head>
+    <title>google.api_core.exceptions.RetryError: Deadline of 300.0s exceeded while calling target function, last exception: 503 Getting metadata from plugin failed with error: &#39;str&#39; object has no attribute &#39;before_request&#39;
+ // Werkzeug Debugger</title>
+    <link rel="stylesheet" href="?__debugger__=yes&amp;cmd=resource&amp;f=style.css">
+    <link rel="shortcut icon"
+        href="?__debugger__=yes&amp;cmd=resource&amp;f=console.png">
+    <script src="?__debugger__=yes&amp;cmd=resource&amp;f=debugger.js"></script>
+    <script>
+      var CONSOLE_MODE = false,
+          EVALEX = true,
+          EVALEX_TRUSTED = false,
+          SECRET = "O4UDtwyLbERJbH7BxVmA";
+    </script>
+  </head>
+  <body style="background-color: #fff">
+    <div class="debugger">
+<h1>RetryError</h1>
+<div class="detail">
+  <p class="errormsg">google.api_core.exceptions.RetryError: Deadline of 300.0s exceeded while calling target function, last exception: 503 Getting metadata from plugin failed with error: &#39;str&#39; object has no attribute &#39;before_request&#39;
+</p>
+</div>
+<h2 class="traceback">Traceback <em>(most recent call last)</em></h2>
+<div class="traceback">
+  <h3></h3>
+  <ul><li><div class="frame" id="frame-4856421760">
+  <h4>File <cite class="filename">"/Users/santiagoospinaidrobo/Desktop/development/inheritly/code/pdf-redaction/inheritly_venv/lib/python3.11/site-packages/google/api_core/grpc_helpers.py"</cite>,
+      line <em class="line">75</em>,
+      in <code class="function">error_remapped_callable</code></h4>
+  <div class="source "><pre class="line before"><span class="ws">    </span>_patch_callable_name(callable_)</pre>
+<pre class="line before"><span class="ws"></span> </pre>
+<pre class="line before"><span class="ws">    </span>@functools.wraps(callable_)</pre>
+<pre class="line before"><span class="ws">    </span>def error_remapped_callable(*args, **kwargs):</pre>
+<pre class="line before"><span class="ws">        </span>try:</pre>
+<pre class="line current"><span class="ws">            </span>return callable_(*args, **kwargs)
+<span class="ws">            </span>       ^^^^^^^^^^^^^^^^^^^^^^^^^^</pre>
+<pre class="line after"><span class="ws">        </span>except grpc.RpcError as exc:</pre>
+<pre class="line after"><span class="ws">            </span>raise exceptions.from_grpc_error(exc) from exc</pre>
+<pre class="line after"><span class="ws"></span> </pre>
+<pre class="line after"><span class="ws">    </span>return error_remapped_callable</pre>
+<pre class="line after"><span class="ws"></span> </pre></div>
+</div>
+
+<li><div class="frame" id="frame-4856421904">
+  <h4>File <cite class="filename">"/Users/santiagoospinaidrobo/Desktop/development/inheritly/code/pdf-redaction/inheritly_venv/lib/python3.11/site-packages/grpc/_channel.py"</cite>,
+      line <em class="line">1161</em>,
+      in <code class="function">__call__</code></h4>
+  <div class="source "><pre class="line before"><span class="ws">            </span>state,</pre>
+<pre class="line before"><span class="ws">            </span>call,</pre>
+<pre class="line before"><span class="ws">        </span>) = self._blocking(</pre>
+<pre class="line before"><span class="ws">            </span>request, timeout, metadata, credentials, wait_for_ready, compression</pre>
+<pre class="line before"><span class="ws">        </span>)</pre>
+<pre class="line current"><span class="ws">        </span>return _end_unary_response_blocking(state, call, False, None)
+<span class="ws">        </span>       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^</pre>
+<pre class="line after"><span class="ws"></span> </pre>
+<pre class="line after"><span class="ws">    </span>def with_call(</pre>
+<pre class="line after"><span class="ws">        </span>self,</pre>
+<pre class="line after"><span class="ws">        </span>request: Any,</pre>
+<pre class="line after"><span class="ws">        </span>timeout: Optional[float] = None,</pre></div>
+</div>
+
+<li><div class="frame" id="frame-4856427520">
+  <h4>File <cite class="filename">"/Users/santiagoospinaidrobo/Desktop/development/inheritly/code/pdf-redaction/inheritly_venv/lib/python3.11/site-packages/grpc/_channel.py"</cite>,
+      line <em class="line">1004</em>,
+      in <code class="function">_end_unary_response_blocking</code></h4>
+  <div class="source "><pre class="line before"><span class="ws">            </span>rendezvous = _MultiThreadedRendezvous(state, call, None, deadline)</pre>
+<pre class="line before"><span class="ws">            </span>return state.response, rendezvous</pre>
+<pre class="line before"><span class="ws">        </span>else:</pre>
+<pre class="line before"><span class="ws">            </span>return state.response</pre>
+<pre class="line before"><span class="ws">    </span>else:</pre>
+<pre class="line current"><span class="ws">        </span>raise _InactiveRpcError(state)  # pytype: disable=not-instantiable
+<span class="ws">        </span>^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^</pre>
+<pre class="line after"><span class="ws"></span> </pre>
+<pre class="line after"><span class="ws"></span> </pre>
+<pre class="line after"><span class="ws"></span>def _stream_unary_invocation_operations(</pre>
+<pre class="line after"><span class="ws">    </span>metadata: Optional[MetadataType], initial_metadata_flags: int</pre>
+<pre class="line after"><span class="ws"></span>) -&gt; Sequence[Sequence[cygrpc.Operation]]:</pre></div>
+</div>
+
+<li><div class="exc-divider">The above exception was the direct cause of the following exception:</div>
+<li><div class="frame" id="frame-4856415424">
+  <h4>File <cite class="filename">"/Users/santiagoospinaidrobo/Desktop/development/inheritly/code/pdf-redaction/inheritly_venv/lib/python3.11/site-packages/google/api_core/retry.py"</cite>,
+      line <em class="line">207</em>,
+      in <code class="function">retry_target</code></h4>
+  <div class="source "><pre class="line before"><span class="ws"></span> </pre>
+<pre class="line before"><span class="ws">    </span>last_exc = None</pre>
+<pre class="line before"><span class="ws"></span> </pre>
+<pre class="line before"><span class="ws">    </span>for sleep in sleep_generator:</pre>
+<pre class="line before"><span class="ws">        </span>try:</pre>
+<pre class="line current"><span class="ws">            </span>result = target()
+<span class="ws">            </span>         ^^^^^^^^</pre>
+<pre class="line after"><span class="ws">            </span>if inspect.isawaitable(result):</pre>
+<pre class="line after"><span class="ws">                </span>warnings.warn(_ASYNC_RETRY_WARNING)</pre>
+<pre class="line after"><span class="ws">            </span>return result</pre>
+<pre class="line after"><span class="ws"></span> </pre>
+<pre class="line after"><span class="ws">        </span># pylint: disable=broad-except</pre></div>
+</div>
+
+<li><div class="frame" id="frame-4856415568">
+  <h4>File <cite class="filename">"/Users/santiagoospinaidrobo/Desktop/development/inheritly/code/pdf-redaction/inheritly_venv/lib/python3.11/site-packages/google/api_core/timeout.py"</cite>,
+      line <em class="line">120</em>,
+      in <code class="function">func_with_timeout</code></h4>
+  <div class="source "><pre class="line before"><span class="ws"></span> </pre>
+<pre class="line before"><span class="ws">                </span>time_since_first_attempt = now_timestamp - first_attempt_timestamp</pre>
+<pre class="line before"><span class="ws">                </span># Avoid setting negative timeout</pre>
+<pre class="line before"><span class="ws">                </span>kwargs[&#34;timeout&#34;] = max(0, self._timeout - time_since_first_attempt)</pre>
+<pre class="line before"><span class="ws"></span> </pre>
+<pre class="line current"><span class="ws">            </span>return func(*args, **kwargs)
+<span class="ws">            </span>       ^^^^^^^^^^^^^^^^^^^^^</pre>
+<pre class="line after"><span class="ws"></span> </pre>
+<pre class="line after"><span class="ws">        </span>return func_with_timeout</pre>
+<pre class="line after"><span class="ws"></span> </pre>
+<pre class="line after"><span class="ws">    </span>def __str__(self):</pre>
+<pre class="line after"><span class="ws">        </span>return &#34;&lt;TimeToDeadlineTimeout timeout={:.1f}&gt;&#34;.format(self._timeout)</pre></div>
+</div>
+
+<li><div class="frame" id="frame-4856416288">
+  <h4>File <cite class="filename">"/Users/santiagoospinaidrobo/Desktop/development/inheritly/code/pdf-redaction/inheritly_venv/lib/python3.11/site-packages/google/api_core/grpc_helpers.py"</cite>,
+      line <em class="line">77</em>,
+      in <code class="function">error_remapped_callable</code></h4>
+  <div class="source "><pre class="line before"><span class="ws">    </span>@functools.wraps(callable_)</pre>
+<pre class="line before"><span class="ws">    </span>def error_remapped_callable(*args, **kwargs):</pre>
+<pre class="line before"><span class="ws">        </span>try:</pre>
+<pre class="line before"><span class="ws">            </span>return callable_(*args, **kwargs)</pre>
+<pre class="line before"><span class="ws">        </span>except grpc.RpcError as exc:</pre>
+<pre class="line current"><span class="ws">            </span>raise exceptions.from_grpc_error(exc) from exc
+<span class="ws">            </span>^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^</pre>
+<pre class="line after"><span class="ws"></span> </pre>
+<pre class="line after"><span class="ws">    </span>return error_remapped_callable</pre>
+<pre class="line after"><span class="ws"></span> </pre>
+<pre class="line after"><span class="ws"></span> </pre>
+<pre class="line after"><span class="ws"></span>class _StreamingResponseIterator(grpc.Call):</pre></div>
+</div>
+
+<li><div class="exc-divider">The above exception was the direct cause of the following exception:</div>
+<li><div class="frame" id="frame-4848711952">
+  <h4>File <cite class="filename">"/Users/santiagoospinaidrobo/Desktop/development/inheritly/code/pdf-redaction/inheritly_venv/lib/python3.11/site-packages/flask/app.py"</cite>,
+      line <em class="line">1478</em>,
+      in <code class="function">__call__</code></h4>
+  <div class="source "><pre class="line before"><span class="ws">    </span>def __call__(self, environ: dict, start_response: t.Callable) -&gt; t.Any:</pre>
+<pre class="line before"><span class="ws">        </span>&#34;&#34;&#34;The WSGI server calls the Flask application object as the</pre>
+<pre class="line before"><span class="ws">        </span>WSGI application. This calls :meth:`wsgi_app`, which can be</pre>
+<pre class="line before"><span class="ws">        </span>wrapped to apply middleware.</pre>
+<pre class="line before"><span class="ws">        </span>&#34;&#34;&#34;</pre>
+<pre class="line current"><span class="ws">        </span>return self.wsgi_app(environ, start_response)
+<span class="ws">        </span>       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^</pre></div>
+</div>
+
+<li><div class="frame" id="frame-4848712528">
+  <h4>File <cite class="filename">"/Users/santiagoospinaidrobo/Desktop/development/inheritly/code/pdf-redaction/inheritly_venv/lib/python3.11/site-packages/flask/app.py"</cite>,
+      line <em class="line">1458</em>,
+      in <code class="function">wsgi_app</code></h4>
+  <div class="source "><pre class="line before"><span class="ws">            </span>try:</pre>
+<pre class="line before"><span class="ws">                </span>ctx.push()</pre>
+<pre class="line before"><span class="ws">                </span>response = self.full_dispatch_request()</pre>
+<pre class="line before"><span class="ws">            </span>except Exception as e:</pre>
+<pre class="line before"><span class="ws">                </span>error = e</pre>
+<pre class="line current"><span class="ws">                </span>response = self.handle_exception(e)
+<span class="ws">                </span>           ^^^^^^^^^^^^^^^^^^^^^^^^</pre>
+<pre class="line after"><span class="ws">            </span>except:  # noqa: B001</pre>
+<pre class="line after"><span class="ws">                </span>error = sys.exc_info()[1]</pre>
+<pre class="line after"><span class="ws">                </span>raise</pre>
+<pre class="line after"><span class="ws">            </span>return response(environ, start_response)</pre>
+<pre class="line after"><span class="ws">        </span>finally:</pre></div>
+</div>
+
+<li><div class="frame" id="frame-4851618656">
+  <h4>File <cite class="filename">"/Users/santiagoospinaidrobo/Desktop/development/inheritly/code/pdf-redaction/inheritly_venv/lib/python3.11/site-packages/flask/app.py"</cite>,
+      line <em class="line">1455</em>,
+      in <code class="function">wsgi_app</code></h4>
+  <div class="source "><pre class="line before"><span class="ws">        </span>ctx = self.request_context(environ)</pre>
+<pre class="line before"><span class="ws">        </span>error: BaseException | None = None</pre>
+<pre class="line before"><span class="ws">        </span>try:</pre>
+<pre class="line before"><span class="ws">            </span>try:</pre>
+<pre class="line before"><span class="ws">                </span>ctx.push()</pre>
+<pre class="line current"><span class="ws">                </span>response = self.full_dispatch_request()
+<span class="ws">                </span>           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^</pre>
+<pre class="line after"><span class="ws">            </span>except Exception as e:</pre>
+<pre class="line after"><span class="ws">                </span>error = e</pre>
+<pre class="line after"><span class="ws">                </span>response = self.handle_exception(e)</pre>
+<pre class="line after"><span class="ws">            </span>except:  # noqa: B001</pre>
+<pre class="line after"><span class="ws">                </span>error = sys.exc_info()[1]</pre></div>
+</div>
+
+<li><div class="frame" id="frame-4851618800">
+  <h4>File <cite class="filename">"/Users/santiagoospinaidrobo/Desktop/development/inheritly/code/pdf-redaction/inheritly_venv/lib/python3.11/site-packages/flask/app.py"</cite>,
+      line <em class="line">869</em>,
+      in <code class="function">full_dispatch_request</code></h4>
+  <div class="source "><pre class="line before"><span class="ws">            </span>request_started.send(self, _async_wrapper=self.ensure_sync)</pre>
+<pre class="line before"><span class="ws">            </span>rv = self.preprocess_request()</pre>
+<pre class="line before"><span class="ws">            </span>if rv is None:</pre>
+<pre class="line before"><span class="ws">                </span>rv = self.dispatch_request()</pre>
+<pre class="line before"><span class="ws">        </span>except Exception as e:</pre>
+<pre class="line current"><span class="ws">            </span>rv = self.handle_user_exception(e)
+<span class="ws">            </span>     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^</pre>
+<pre class="line after"><span class="ws">        </span>return self.finalize_request(rv)</pre>
+<pre class="line after"><span class="ws"></span> </pre>
+<pre class="line after"><span class="ws">    </span>def finalize_request(</pre>
+<pre class="line after"><span class="ws">        </span>self,</pre>
+<pre class="line after"><span class="ws">        </span>rv: ft.ResponseReturnValue | HTTPException,</pre></div>
+</div>
+
+<li><div class="frame" id="frame-4851618944">
+  <h4>File <cite class="filename">"/Users/santiagoospinaidrobo/Desktop/development/inheritly/code/pdf-redaction/inheritly_venv/lib/python3.11/site-packages/flask/app.py"</cite>,
+      line <em class="line">867</em>,
+      in <code class="function">full_dispatch_request</code></h4>
+  <div class="source "><pre class="line before"><span class="ws"></span> </pre>
+<pre class="line before"><span class="ws">        </span>try:</pre>
+<pre class="line before"><span class="ws">            </span>request_started.send(self, _async_wrapper=self.ensure_sync)</pre>
+<pre class="line before"><span class="ws">            </span>rv = self.preprocess_request()</pre>
+<pre class="line before"><span class="ws">            </span>if rv is None:</pre>
+<pre class="line current"><span class="ws">                </span>rv = self.dispatch_request()
+<span class="ws">                </span>     ^^^^^^^^^^^^^^^^^^^^^^^</pre>
+<pre class="line after"><span class="ws">        </span>except Exception as e:</pre>
+<pre class="line after"><span class="ws">            </span>rv = self.handle_user_exception(e)</pre>
+<pre class="line after"><span class="ws">        </span>return self.finalize_request(rv)</pre>
+<pre class="line after"><span class="ws"></span> </pre>
+<pre class="line after"><span class="ws">    </span>def finalize_request(</pre></div>
+</div>
+
+<li><div class="frame" id="frame-4851619088">
+  <h4>File <cite class="filename">"/Users/santiagoospinaidrobo/Desktop/development/inheritly/code/pdf-redaction/inheritly_venv/lib/python3.11/site-packages/flask/app.py"</cite>,
+      line <em class="line">852</em>,
+      in <code class="function">dispatch_request</code></h4>
+  <div class="source "><pre class="line before"><span class="ws">            </span>and req.method == &#34;OPTIONS&#34;</pre>
+<pre class="line before"><span class="ws">        </span>):</pre>
+<pre class="line before"><span class="ws">            </span>return self.make_default_options_response()</pre>
+<pre class="line before"><span class="ws">        </span># otherwise dispatch to the handler for that endpoint</pre>
+<pre class="line before"><span class="ws">        </span>view_args: dict[str, t.Any] = req.view_args  # type: ignore[assignment]</pre>
+<pre class="line current"><span class="ws">        </span>return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)
+<span class="ws">        </span>       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^</pre>
+<pre class="line after"><span class="ws"></span> </pre>
+<pre class="line after"><span class="ws">    </span>def full_dispatch_request(self) -&gt; Response:</pre>
+<pre class="line after"><span class="ws">        </span>&#34;&#34;&#34;Dispatches the request and on top of that performs request</pre>
+<pre class="line after"><span class="ws">        </span>pre and postprocessing as well as HTTP exception catching and</pre>
+<pre class="line after"><span class="ws">        </span>error handling.</pre></div>
+</div>
+
+<li><div class="frame" id="frame-4851619232">
+  <h4>File <cite class="filename">"/Users/santiagoospinaidrobo/Desktop/development/inheritly/code/pdf-redaction/inheritly_venv/app.py"</cite>,
+      line <em class="line">16</em>,
+      in <code class="function">redact_pdf_endpoint</code></h4>
+  <div class="source "><pre class="line before"><span class="ws">    </span># Save the uploaded PDF temporarily</pre>
+<pre class="line before"><span class="ws">    </span>pdf_path = &#39;temp.pdf&#39;</pre>
+<pre class="line before"><span class="ws">    </span>pdf_file.save(pdf_path)</pre>
+<pre class="line before"><span class="ws"></span> </pre>
+<pre class="line before"><span class="ws">    </span># Redact the PDF</pre>
+<pre class="line current"><span class="ws">    </span>redacted_pdf_path = redact_pdf(pdf_path)
+<span class="ws">    </span>                    ^^^^^^^^^^^^^^^^^^^^</pre>
+<pre class="line after"><span class="ws"></span> </pre>
+<pre class="line after"><span class="ws">    </span># Send the redacted PDF as a response</pre>
+<pre class="line after"><span class="ws">    </span>return send_file(redacted_pdf_path, as_attachment=True, download_name=&#39;redacted.pdf&#39;)</pre>
+<pre class="line after"><span class="ws"></span> </pre>
+<pre class="line after"><span class="ws">  </span>return &#39;Invalid PDF file. Please upload a PDF.&#39;, 400</pre></div>
+</div>
+
+<li><div class="frame" id="frame-4851619520">
+  <h4>File <cite class="filename">"/Users/santiagoospinaidrobo/Desktop/development/inheritly/code/pdf-redaction/inheritly_venv/redaction.py"</cite>,
+      line <em class="line">28</em>,
+      in <code class="function">redact_pdf</code></h4>
+  <div class="source "><pre class="line before"><span class="ws">        </span>&#34;info_types&#34;: [{&#34;name&#34;: &#34;PERSON_NAME&#34;}, {&#34;name&#34;: &#34;US_SOCIAL_SECURITY_NUMBER&#34;}],</pre>
+<pre class="line before"><span class="ws">        </span>&#34;include_quote&#34;: True,</pre>
+<pre class="line before"><span class="ws">    </span>}</pre>
+<pre class="line before"><span class="ws"></span> </pre>
+<pre class="line before"><span class="ws">    </span># Run DLP inspection</pre>
+<pre class="line current"><span class="ws">    </span>response = dlp_client.inspect_content(
+<span class="ws">    </span>           </pre>
+<pre class="line after"><span class="ws">        </span>request={</pre>
+<pre class="line after"><span class="ws">            </span>&#34;parent&#34;: &#34;inheritlytest&#34;,</pre>
+<pre class="line after"><span class="ws">            </span>&#34;item&#34;: {&#34;value&#34;: pdf_text},</pre>
+<pre class="line after"><span class="ws">            </span>&#34;inspect_config&#34;: inspect_config,</pre>
+<pre class="line after"><span class="ws">        </span>}</pre></div>
+</div>
+
+<li><div class="frame" id="frame-4851620096">
+  <h4>File <cite class="filename">"/Users/santiagoospinaidrobo/Desktop/development/inheritly/code/pdf-redaction/inheritly_venv/lib/python3.11/site-packages/google/cloud/dlp_v2/services/dlp_service/client.py"</cite>,
+      line <em class="line">673</em>,
+      in <code class="function">inspect_content</code></h4>
+  <div class="source "><pre class="line before"><span class="ws">        </span>metadata = tuple(metadata) + (</pre>
+<pre class="line before"><span class="ws">            </span>gapic_v1.routing_header.to_grpc_metadata(((&#34;parent&#34;, request.parent),)),</pre>
+<pre class="line before"><span class="ws">        </span>)</pre>
+<pre class="line before"><span class="ws"></span> </pre>
+<pre class="line before"><span class="ws">        </span># Send the request.</pre>
+<pre class="line current"><span class="ws">        </span>response = rpc(
+<span class="ws">        </span>           </pre>
+<pre class="line after"><span class="ws">            </span>request,</pre>
+<pre class="line after"><span class="ws">            </span>retry=retry,</pre>
+<pre class="line after"><span class="ws">            </span>timeout=timeout,</pre>
+<pre class="line after"><span class="ws">            </span>metadata=metadata,</pre>
+<pre class="line after"><span class="ws">        </span>)</pre></div>
+</div>
+
+<li><div class="frame" id="frame-4856279056">
+  <h4>File <cite class="filename">"/Users/santiagoospinaidrobo/Desktop/development/inheritly/code/pdf-redaction/inheritly_venv/lib/python3.11/site-packages/google/api_core/gapic_v1/method.py"</cite>,
+      line <em class="line">131</em>,
+      in <code class="function">__call__</code></h4>
+  <div class="source "><pre class="line before"><span class="ws">            </span>metadata.extend(self._metadata)</pre>
+<pre class="line before"><span class="ws">            </span>kwargs[&#34;metadata&#34;] = metadata</pre>
+<pre class="line before"><span class="ws">        </span>if self._compression is not None:</pre>
+<pre class="line before"><span class="ws">            </span>kwargs[&#34;compression&#34;] = compression</pre>
+<pre class="line before"><span class="ws"></span> </pre>
+<pre class="line current"><span class="ws">        </span>return wrapped_func(*args, **kwargs)
+<span class="ws">        </span>       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^</pre>
+<pre class="line after"><span class="ws"></span> </pre>
+<pre class="line after"><span class="ws"></span> </pre>
+<pre class="line after"><span class="ws"></span>def wrap_method(</pre>
+<pre class="line after"><span class="ws">    </span>func,</pre>
+<pre class="line after"><span class="ws">    </span>default_retry=None,</pre></div>
+</div>
+
+<li><div class="frame" id="frame-4856280496">
+  <h4>File <cite class="filename">"/Users/santiagoospinaidrobo/Desktop/development/inheritly/code/pdf-redaction/inheritly_venv/lib/python3.11/site-packages/google/api_core/retry.py"</cite>,
+      line <em class="line">372</em>,
+      in <code class="function">retry_wrapped_func</code></h4>
+  <div class="source "><pre class="line before"><span class="ws">            </span>&#34;&#34;&#34;A wrapper that calls target function with retry.&#34;&#34;&#34;</pre>
+<pre class="line before"><span class="ws">            </span>target = functools.partial(func, *args, **kwargs)</pre>
+<pre class="line before"><span class="ws">            </span>sleep_generator = exponential_sleep_generator(</pre>
+<pre class="line before"><span class="ws">                </span>self._initial, self._maximum, multiplier=self._multiplier</pre>
+<pre class="line before"><span class="ws">            </span>)</pre>
+<pre class="line current"><span class="ws">            </span>return retry_target(
+<span class="ws">            </span>       </pre>
+<pre class="line after"><span class="ws">                </span>target,</pre>
+<pre class="line after"><span class="ws">                </span>self._predicate,</pre>
+<pre class="line after"><span class="ws">                </span>sleep_generator,</pre>
+<pre class="line after"><span class="ws">                </span>self._timeout,</pre>
+<pre class="line after"><span class="ws">                </span>on_error=on_error,</pre></div>
+</div>
+
+<li><div class="frame" id="frame-4856415280">
+  <h4>File <cite class="filename">"/Users/santiagoospinaidrobo/Desktop/development/inheritly/code/pdf-redaction/inheritly_venv/lib/python3.11/site-packages/google/api_core/retry.py"</cite>,
+      line <em class="line">226</em>,
+      in <code class="function">retry_target</code></h4>
+  <div class="source "><pre class="line before"><span class="ws">        </span>if deadline is not None:</pre>
+<pre class="line before"><span class="ws">            </span>next_attempt_time = datetime_helpers.utcnow() + datetime.timedelta(</pre>
+<pre class="line before"><span class="ws">                </span>seconds=sleep</pre>
+<pre class="line before"><span class="ws">            </span>)</pre>
+<pre class="line before"><span class="ws">            </span>if deadline &lt; next_attempt_time:</pre>
+<pre class="line current"><span class="ws">                </span>raise exceptions.RetryError(
+<span class="ws">                </span>^^^^^^^^^^^^^^^</pre>
+<pre class="line after"><span class="ws">                    </span>&#34;Deadline of {:.1f}s exceeded while calling target function&#34;.format(</pre>
+<pre class="line after"><span class="ws">                        </span>timeout</pre>
+<pre class="line after"><span class="ws">                    </span>),</pre>
+<pre class="line after"><span class="ws">                    </span>last_exc,</pre>
+<pre class="line after"><span class="ws">                </span>) from last_exc</pre></div>
+</div>
+</ul>
+  <blockquote>google.api_core.exceptions.RetryError: Deadline of 300.0s exceeded while calling target function, last exception: 503 Getting metadata from plugin failed with error: &#39;str&#39; object has no attribute &#39;before_request&#39;
+</blockquote>
+</div>
+
+<div class="plain">
+    <p>
+      This is the Copy/Paste friendly version of the traceback.
+    </p>
+    <textarea cols="50" rows="10" name="code" readonly>Traceback (most recent call last):
+  File &#34;/Users/santiagoospinaidrobo/Desktop/development/inheritly/code/pdf-redaction/inheritly_venv/lib/python3.11/site-packages/google/api_core/grpc_helpers.py&#34;, line 75, in error_remapped_callable
+    return callable_(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File &#34;/Users/santiagoospinaidrobo/Desktop/development/inheritly/code/pdf-redaction/inheritly_venv/lib/python3.11/site-packages/grpc/_channel.py&#34;, line 1161, in __call__
+    return _end_unary_response_blocking(state, call, False, None)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File &#34;/Users/santiagoospinaidrobo/Desktop/development/inheritly/code/pdf-redaction/inheritly_venv/lib/python3.11/site-packages/grpc/_channel.py&#34;, line 1004, in _end_unary_response_blocking
+    raise _InactiveRpcError(state)  # pytype: disable=not-instantiable
+grpc._channel._InactiveRpcError: &lt;_InactiveRpcError of RPC that terminated with:
+	status = StatusCode.UNAVAILABLE
+	details = &#34;Getting metadata from plugin failed with error: &#39;str&#39; object has no attribute &#39;before_request&#39;&#34;
+	debug_error_string = &#34;UNKNOWN:Error received from peer  {grpc_message:&#34;Getting metadata from plugin failed with error: \&#39;str\&#39; object has no attribute \&#39;before_request\&#39;&#34;, grpc_status:14, created_time:&#34;2023-11-26T13:57:44.584125-05:00&#34;}&#34;
+&gt;
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File &#34;/Users/santiagoospinaidrobo/Desktop/development/inheritly/code/pdf-redaction/inheritly_venv/lib/python3.11/site-packages/google/api_core/retry.py&#34;, line 207, in retry_target
+    result = target()
+             ^^^^^^^^
+  File &#34;/Users/santiagoospinaidrobo/Desktop/development/inheritly/code/pdf-redaction/inheritly_venv/lib/python3.11/site-packages/google/api_core/timeout.py&#34;, line 120, in func_with_timeout
+    return func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File &#34;/Users/santiagoospinaidrobo/Desktop/development/inheritly/code/pdf-redaction/inheritly_venv/lib/python3.11/site-packages/google/api_core/grpc_helpers.py&#34;, line 77, in error_remapped_callable
+    raise exceptions.from_grpc_error(exc) from exc
+google.api_core.exceptions.ServiceUnavailable: 503 Getting metadata from plugin failed with error: &#39;str&#39; object has no attribute &#39;before_request&#39;
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File &#34;/Users/santiagoospinaidrobo/Desktop/development/inheritly/code/pdf-redaction/inheritly_venv/lib/python3.11/site-packages/flask/app.py&#34;, line 1478, in __call__
+    return self.wsgi_app(environ, start_response)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File &#34;/Users/santiagoospinaidrobo/Desktop/development/inheritly/code/pdf-redaction/inheritly_venv/lib/python3.11/site-packages/flask/app.py&#34;, line 1458, in wsgi_app
+    response = self.handle_exception(e)
+               ^^^^^^^^^^^^^^^^^^^^^^^^
+  File &#34;/Users/santiagoospinaidrobo/Desktop/development/inheritly/code/pdf-redaction/inheritly_venv/lib/python3.11/site-packages/flask/app.py&#34;, line 1455, in wsgi_app
+    response = self.full_dispatch_request()
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File &#34;/Users/santiagoospinaidrobo/Desktop/development/inheritly/code/pdf-redaction/inheritly_venv/lib/python3.11/site-packages/flask/app.py&#34;, line 869, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File &#34;/Users/santiagoospinaidrobo/Desktop/development/inheritly/code/pdf-redaction/inheritly_venv/lib/python3.11/site-packages/flask/app.py&#34;, line 867, in full_dispatch_request
+    rv = self.dispatch_request()
+         ^^^^^^^^^^^^^^^^^^^^^^^
+  File &#34;/Users/santiagoospinaidrobo/Desktop/development/inheritly/code/pdf-redaction/inheritly_venv/lib/python3.11/site-packages/flask/app.py&#34;, line 852, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File &#34;/Users/santiagoospinaidrobo/Desktop/development/inheritly/code/pdf-redaction/inheritly_venv/app.py&#34;, line 16, in redact_pdf_endpoint
+    redacted_pdf_path = redact_pdf(pdf_path)
+                        ^^^^^^^^^^^^^^^^^^^^
+  File &#34;/Users/santiagoospinaidrobo/Desktop/development/inheritly/code/pdf-redaction/inheritly_venv/redaction.py&#34;, line 28, in redact_pdf
+    response = dlp_client.inspect_content(
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File &#34;/Users/santiagoospinaidrobo/Desktop/development/inheritly/code/pdf-redaction/inheritly_venv/lib/python3.11/site-packages/google/cloud/dlp_v2/services/dlp_service/client.py&#34;, line 673, in inspect_content
+    response = rpc(
+               ^^^^
+  File &#34;/Users/santiagoospinaidrobo/Desktop/development/inheritly/code/pdf-redaction/inheritly_venv/lib/python3.11/site-packages/google/api_core/gapic_v1/method.py&#34;, line 131, in __call__
+    return wrapped_func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File &#34;/Users/santiagoospinaidrobo/Desktop/development/inheritly/code/pdf-redaction/inheritly_venv/lib/python3.11/site-packages/google/api_core/retry.py&#34;, line 372, in retry_wrapped_func
+    return retry_target(
+           ^^^^^^^^^^^^^
+  File &#34;/Users/santiagoospinaidrobo/Desktop/development/inheritly/code/pdf-redaction/inheritly_venv/lib/python3.11/site-packages/google/api_core/retry.py&#34;, line 226, in retry_target
+    raise exceptions.RetryError(
+google.api_core.exceptions.RetryError: Deadline of 300.0s exceeded while calling target function, last exception: 503 Getting metadata from plugin failed with error: &#39;str&#39; object has no attribute &#39;before_request&#39;
+</textarea>
+</div>
+<div class="explanation">
+  The debugger caught an exception in your WSGI application.  You can now
+  look at the traceback which led to the error.  <span class="nojavascript">
+  If you enable JavaScript you can also use additional features such as code
+  execution (if the evalex feature is enabled), automatic pasting of the
+  exceptions and much more.</span>
+</div>
+      <div class="footer">
+        Brought to you by <strong class="arthur">DON'T PANIC</strong>, your
+        friendly Werkzeug powered traceback interpreter.
+      </div>
+    </div>
+
+    <div class="pin-prompt">
+      <div class="inner">
+        <h3>Console Locked</h3>
+        <p>
+          The console is locked and needs to be unlocked by entering the PIN.
+          You can find the PIN printed out on the standard output of your
+          shell that runs the server.
+        <form>
+          <p>PIN:
+            <input type=text name=pin size=14>
+            <input type=submit name=btn value="Confirm Pin">
+        </form>
+      </div>
+    </div>
+  </body>
+</html>
+
+<!--
+
+Traceback (most recent call last):
+  File "/Users/santiagoospinaidrobo/Desktop/development/inheritly/code/pdf-redaction/inheritly_venv/lib/python3.11/site-packages/google/api_core/grpc_helpers.py", line 75, in error_remapped_callable
+    return callable_(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/santiagoospinaidrobo/Desktop/development/inheritly/code/pdf-redaction/inheritly_venv/lib/python3.11/site-packages/grpc/_channel.py", line 1161, in __call__
+    return _end_unary_response_blocking(state, call, False, None)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/santiagoospinaidrobo/Desktop/development/inheritly/code/pdf-redaction/inheritly_venv/lib/python3.11/site-packages/grpc/_channel.py", line 1004, in _end_unary_response_blocking
+    raise _InactiveRpcError(state)  # pytype: disable=not-instantiable
+grpc._channel._InactiveRpcError: <_InactiveRpcError of RPC that terminated with:
+	status = StatusCode.UNAVAILABLE
+	details = "Getting metadata from plugin failed with error: 'str' object has no attribute 'before_request'"
+	debug_error_string = "UNKNOWN:Error received from peer  {grpc_message:"Getting metadata from plugin failed with error: \'str\' object has no attribute \'before_request\'", grpc_status:14, created_time:"2023-11-26T13:57:44.584125-05:00"}"
+>
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/Users/santiagoospinaidrobo/Desktop/development/inheritly/code/pdf-redaction/inheritly_venv/lib/python3.11/site-packages/google/api_core/retry.py", line 207, in retry_target
+    result = target()
+             ^^^^^^^^
+  File "/Users/santiagoospinaidrobo/Desktop/development/inheritly/code/pdf-redaction/inheritly_venv/lib/python3.11/site-packages/google/api_core/timeout.py", line 120, in func_with_timeout
+    return func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/santiagoospinaidrobo/Desktop/development/inheritly/code/pdf-redaction/inheritly_venv/lib/python3.11/site-packages/google/api_core/grpc_helpers.py", line 77, in error_remapped_callable
+    raise exceptions.from_grpc_error(exc) from exc
+google.api_core.exceptions.ServiceUnavailable: 503 Getting metadata from plugin failed with error: 'str' object has no attribute 'before_request'
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/Users/santiagoospinaidrobo/Desktop/development/inheritly/code/pdf-redaction/inheritly_venv/lib/python3.11/site-packages/flask/app.py", line 1478, in __call__
+    return self.wsgi_app(environ, start_response)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/santiagoospinaidrobo/Desktop/development/inheritly/code/pdf-redaction/inheritly_venv/lib/python3.11/site-packages/flask/app.py", line 1458, in wsgi_app
+    response = self.handle_exception(e)
+               ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/santiagoospinaidrobo/Desktop/development/inheritly/code/pdf-redaction/inheritly_venv/lib/python3.11/site-packages/flask/app.py", line 1455, in wsgi_app
+    response = self.full_dispatch_request()
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/santiagoospinaidrobo/Desktop/development/inheritly/code/pdf-redaction/inheritly_venv/lib/python3.11/site-packages/flask/app.py", line 869, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/santiagoospinaidrobo/Desktop/development/inheritly/code/pdf-redaction/inheritly_venv/lib/python3.11/site-packages/flask/app.py", line 867, in full_dispatch_request
+    rv = self.dispatch_request()
+         ^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/santiagoospinaidrobo/Desktop/development/inheritly/code/pdf-redaction/inheritly_venv/lib/python3.11/site-packages/flask/app.py", line 852, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/santiagoospinaidrobo/Desktop/development/inheritly/code/pdf-redaction/inheritly_venv/app.py", line 16, in redact_pdf_endpoint
+    redacted_pdf_path = redact_pdf(pdf_path)
+                        ^^^^^^^^^^^^^^^^^^^^
+  File "/Users/santiagoospinaidrobo/Desktop/development/inheritly/code/pdf-redaction/inheritly_venv/redaction.py", line 28, in redact_pdf
+    response = dlp_client.inspect_content(
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/santiagoospinaidrobo/Desktop/development/inheritly/code/pdf-redaction/inheritly_venv/lib/python3.11/site-packages/google/cloud/dlp_v2/services/dlp_service/client.py", line 673, in inspect_content
+    response = rpc(
+               ^^^^
+  File "/Users/santiagoospinaidrobo/Desktop/development/inheritly/code/pdf-redaction/inheritly_venv/lib/python3.11/site-packages/google/api_core/gapic_v1/method.py", line 131, in __call__
+    return wrapped_func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/santiagoospinaidrobo/Desktop/development/inheritly/code/pdf-redaction/inheritly_venv/lib/python3.11/site-packages/google/api_core/retry.py", line 372, in retry_wrapped_func
+    return retry_target(
+           ^^^^^^^^^^^^^
+  File "/Users/santiagoospinaidrobo/Desktop/development/inheritly/code/pdf-redaction/inheritly_venv/lib/python3.11/site-packages/google/api_core/retry.py", line 226, in retry_target
+    raise exceptions.RetryError(
+google.api_core.exceptions.RetryError: Deadline of 300.0s exceeded while calling target function, last exception: 503 Getting metadata from plugin failed with error: 'str' object has no attribute 'before_request'
+
+
+-->
