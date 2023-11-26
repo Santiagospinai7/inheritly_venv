@@ -1,0 +1,7 @@
+# pip install -r requirements.txt
+# or
+# pip freeze > requirements.txt
+
+# pip list
+
+Flask==3.0.0
